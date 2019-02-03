@@ -126,15 +126,11 @@ class renderObj {
 
         //This step takes forces and applies them to the object to
         //influence their veloctiy for the step
-        if (this.forces.length > 0) {
-            var i;
-            if (this.forces.length > 0) {
-                for (i = 0; i < this.forces.length; i++) {
-                    var influence = this.forces[i].returnValue(this);
-                    this.vel[0] += influence[0];
-                    this.vel[1] += influence[1];
-                }
-            }
+        var i;
+        for (i = 0; i < this.forces.length; i++) {
+            var influence = this.forces[i].returnValue(this);
+            this.vel[0] += influence[0];
+            this.vel[1] += influence[1];
         }
 
         //Basic step, increasing position by velocity
